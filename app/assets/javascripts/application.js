@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require d3
 //= require_tree .
@@ -19,6 +20,8 @@ $(function() {
   $("#add-row").on("click", addRow);
   $("#update_course_button").on("click", greyOut);
   $(".delete-association").on("click", deleteRow);
+  $(".date-stuff").on("click", datePicker);
+  $(".date-stuff-2").on("click", datePicker2);
 });
 
 function greyOut(){
@@ -29,22 +32,25 @@ function greyOut(){
   $(".edit_course").submit();
 }
 
-function hideSection(){
-  if (document.getElementById("grade_list")!= "null"){
-    var section = document.getElementById("grade_list");
-    var last = section.lastElementChild;
-    last.style.display = 'none';
+function hideSection() {
+  var section = $("div.container").last();
+    section.css("display", "none");
   }
-}
 
 function addRow(){
-  if (document.getElementById("grade_list")!= "null"){
-    var section = document.getElementById("grade_list");
-    var last = section.lastElementChild;
-    last.style.display = 'block';
-  }
+  var section = $("div.container").last();
+  section.css("display", 'block');
 }
+
 
 function deleteRow(event){
   $(event.target).closest(".association").css("display", "none");
+}
+
+function datePicker() {
+  $('.date-stuff').datepicker();
+}
+
+function datePicker2() {
+  $('.date-stuff-2').datepicker();
 }

@@ -1,0 +1,10 @@
+<div id="dates-modal" class="modal hide fade">
+  <h3>IT WORKED</h3>
+  <%= form_tag assignments_path do %>
+  <%= label_tag :active_at %>
+  <div class="date-stuff"> <%= text_field_tag :active_at %></div>
+  <%= label_tag :due_at %>
+  <div class="date-stuff-2"> <%= text_field_tag :due_at %></div>
+  <%= submit_tag "Add Date" %>
+  <% end %>
+</div>
